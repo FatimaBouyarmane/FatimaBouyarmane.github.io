@@ -1,139 +1,182 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fatima Bouyarmane - Cybersecurity Student at UEMF</title>
-    <style>
-        /* Basic Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
+    <meta name="generator" content="Jekyll v4.3.4" />
+    <meta property="og:title" content="Jane Doe" />
+    <meta property="og:locale" content="en" />
+    <meta name="description" content="A Collection of Programming Tutorials." />
+    <meta property="og:description" content="A Collection of Programming Tutorials." />
+    <link rel="canonical" href="https://janedoe.github.io/" />
+    <meta property="og:url" content="https://janedoe.github.io/" />
+    <meta property="og:site_name" content="Jane Doe" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Jane Doe" />
+    <meta name="twitter:site" content="@twitter_username" />
+    <script type="application/ld+json"> 
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "description": "A Collection of Programming Tutorials.",
+        "headline": "Jane Doe",
+        "name": "Jane Doe",
+        "sameAs": [
+            "https://github.com/JaneDoe",
+            "https://www.linkedin.com/in/jane-doe/"
+        ],
+        "url": "https://janedoe.github.io/"
+    }</script>
+    <title>Jane Doe</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/assets/img/favicons/site.webmanifest">
+    <link rel="shortcut icon" href="/assets/img/favicons/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="Jane Doe">
+    <meta name="application-name" content="Jane Doe">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="/assets/img/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="stylesheet" href="/assets/css/jekyll-theme-chirpy.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.min.css">
+    
+    <script type="text/javascript">
+        class ModeToggle {
+            static get MODE_KEY() { return 'mode'; }
+            static get MODE_ATTR() { return 'data-mode'; }
+            static get DARK_MODE() { return 'dark'; }
+            static get LIGHT_MODE() { return 'light'; }
+            static get ID() { return 'mode-toggle'; }
 
-        /* Dark Theme */
-        body {
-            background-color: #000000; /* Black background */
-            color: #c19ff9; /* Light purple text */
-        }
-
-        /* Styling for header */
-        header {
-            background: #1a1a1a;
-            color: #c19ff9;
-            padding: 20px 0;
-            text-align: center;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Main content styling */
-        main {
-            padding: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        section {
-            margin-bottom: 30px;
-        }
-
-        h2 {
-            color: #d3afff;
-            margin-bottom: 10px;
-        }
-
-        p, ul li {
-            line-height: 1.6;
-            color: #c19ff9; /* Light purple text for paragraphs */
-        }
-
-        /* Button styling */
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            margin-top: 10px;
-            background-color: #6a0dad; /* Dark purple for button */
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .button:hover {
-            background-color: #551a8b; /* Slightly darker purple on hover */
-        }
-
-        /* Footer styling */
-        footer {
-            text-align: center;
-            padding: 10px;
-            background: #1a1a1a;
-            color: #c19ff9;
-            box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.5);
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-
-        /* Responsive design */
-        @media (max-width: 600px) {
-            header, footer {
-                padding: 15px;
+            constructor() {
+                let self = this;
+                this.sysDarkPrefers.addEventListener('change', () => {
+                    if (self.hasMode) { self.clearMode(); }
+                    self.notify();
+                });
+                if (!this.hasMode) { return; }
+                if (this.isDarkMode) { this.setDark(); } else { this.setLight(); }
             }
-            main {
-                padding: 10px;
+
+            get sysDarkPrefers() { return window.matchMedia('(prefers-color-scheme: dark)'); }
+            get isPreferDark() { return this.sysDarkPrefers.matches; }
+            get isDarkMode() { return this.mode === ModeToggle.DARK_MODE; }
+            get hasMode() { return this.mode != null; }
+            get mode() { return sessionStorage.getItem(ModeToggle.MODE_KEY); }
+            get modeStatus() {
+                return this.hasMode ? this.mode : this.isPreferDark ? ModeToggle.DARK_MODE : ModeToggle.LIGHT_MODE;
+            }
+
+            setDark() {
+                document.documentElement.setAttribute(ModeToggle.MODE_ATTR, ModeToggle.DARK_MODE);
+                sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE);
+            }
+
+            setLight() {
+                document.documentElement.setAttribute(ModeToggle.MODE_ATTR, ModeToggle.LIGHT_MODE);
+                sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE);
+            }
+
+            clearMode() {
+                document.documentElement.removeAttribute(ModeToggle.MODE_ATTR);
+                sessionStorage.removeItem(ModeToggle.MODE_KEY);
+            }
+
+            notify() {
+                window.postMessage({ direction: ModeToggle.ID, message: this.modeStatus }, '*');
+            }
+
+            flipMode() {
+                if (this.hasMode) { this.clearMode(); }
+                else { this.isPreferDark ? this.setLight() : this.setDark(); }
+                this.notify();
             }
         }
-    </style>
+        const modeToggle = new ModeToggle();
+    </script>
 </head>
 <body>
-
-<header>
-    <h1>Fatima Bouyarmane</h1>
-    <p>Cybersecurity Student at UEMF</p>
-</header>
-
-<main>
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Welcome! I am a cybersecurity student at the Euromed University of Fes (UEMF). I am passionate about protecting digital systems, analyzing security threats, and building secure networks. My journey in cybersecurity involves constant learning and experimentation with the latest security tools and technologies.</p>
-    </section>
-
-    <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li>Network Security</li>
-            <li>Penetration Testing</li>
-            <li>Cryptography</li>
-            <li>Python, Bash Scripting</li>
-            <li>Java, JavaScript</li>
-            <li>Malware Analysis</li>
-            <li>Linux System Administration</li>
-        </ul>
-    </section>
-
-    <section id="projects">
-        <h2>Projects</h2>
-        <p>Here are some of my projects in cybersecurity:</p>
-        <ul>
-            <li><a href="https://github.com/FatimaBouyarmane/" target="_blank" style="color: #b3b3ff;">Project 1: Web Vulnerability Scanner</a></li>
-            <li><a href="https://github.com/FatimaBouyarmane/" target="_blank" style="color: #b3b3ff;">Project 2: Snort - Intrusion Detection System</a></li>
-            <li><a href="https://github.com/FatimaBouyarmane/Projet_Coffre_Fort.git" target="_blank" style="color: #b3b3ff;">Project 3: Robotics - Creating a Safe Vault</a></li>
-        </ul>
-    </section>
-
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Feel free to reach out to me on LinkedIn or via email.</p>
-        <a href="mailto:fbouyarmane@gmail.com" class="button">Email Me</a>
-    </section>
-</main>
-
-<footer>
-    <p>© 2024 Fatima Bouyarmane - Cybersecurity Student at UEMF</p>
-</footer>
-
+    <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
+        <header class="profile-wrapper">
+            <a href="/" id="avatar" class="rounded-circle">
+                <img src="https://media.licdn.com/dms/image/v2/D4E03AQFJ2pCwjW1gqg/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1700773629512?e=1733961600&v=beta&t=sDosRw2t3ibVXRrMX8uqFqY5YbILwtt0FvQ1wkPh6uk" width="112" height="112" alt="avatar" onerror="this.style.display='none'">
+            </a>
+            <h1 class="site-title"> <a href="/">Jane Doe</a></h1>
+            <p class="site-subtitle fst-italic mb-0">A Collection of Programming Tutorials</p>
+        </header>
+        <nav class="flex-column flex-grow-1 w-100 ps-0">
+            <ul class="nav">
+                <li class="nav-item active"> 
+                    <a href="/" class="nav-link"> <i class="fa-fw fas fa-home"></i> <span>HOME</span> </a>
+                </li>
+                <li class="nav-item"> 
+                    <a href="/categories/" class="nav-link"> <i class="fa-fw fas fa-stream"></i> <span>CATEGORIES</span> </a>
+                </li>
+                <li class="nav-item"> 
+                    <a href="/tags/" class="nav-link"> <i class="fa-fw fas fa-tags"></i> <span>TAGS</span> </a>
+                </li>
+                <li class="nav-item"> 
+                    <a href="/archives/" class="nav-link"> <i class="fa-fw fas fa-archive"></i> <span>ARCHIVES</span> </a>
+                </li>
+                <li class="nav-item"> 
+                    <a href="/about/" class="nav-link"> <i class="fa-fw fas fa-info-circle"></i> <span>ABOUT</span> </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="sidebar-bottom d-flex flex-wrap align-items-center w-100">
+            <button type="button" class="btn btn-link nav-link" aria-label="Switch Mode" id="mode-toggle"> 
+                <i class="fas fa-adjust"></i> 
+            </button> 
+            <span class="icon-border"></span> 
+            <a href="https://github.com/JaneDoe" aria-label="github" target="_blank" rel="noopener noreferrer"> 
+                <i class="fab fa-github"></i> 
+            </a> 
+            <a href="https://twitter.com/twitter_username" aria-label="twitter" target="_blank" rel="noopener noreferrer"> 
+                <i class="fa-brands fa-x-twitter"></i> 
+            </a> 
+            <a href="javascript:location.href = 'mailto:' + ['janedoe','gmail.com'].join('@')" aria-label="email"> 
+                <i class="fas fa-envelope"></i> 
+            </a>
+        </div>
+    </aside>
+    <div id="main-wrapper" class="d-flex justify-content-center">
+        <div id="content" class="p-3">
+            <article class="post">
+                <header>
+                    <h2><a href="/post/first-tutorial/">My First Tutorial</a></h2>
+                    <time datetime="2023-10-25">October 25, 2023</time>
+                </header>
+                <p>Welcome to my blog! In this first tutorial, I'll guide you through the basics of HTML and CSS...</p>
+                <a href="/post/first-tutorial/" class="read-more">Read More →</a>
+            </article>
+            <article class="post">
+                <header>
+                    <h2><a href="/post/second-tutorial/">Understanding JavaScript Basics</a></h2>
+                    <time datetime="2023-10-20">October 20, 2023</time>
+                </header>
+                <p>This tutorial will cover the foundational concepts of JavaScript, including variables, functions, and control flow...</p>
+                <a href="/post/second-tutorial/" class="read-more">Read More →</a>
+            </article>
+            <!-- Add more articles as needed -->
+        </div>
+    </div>
+    <footer class="footer text-center">
+        <p>&copy; 2023 Jane Doe. All rights reserved.</p>
+    </footer>
+    <script src="/assets/js/main.js"></script>
 </body>
 </html>
