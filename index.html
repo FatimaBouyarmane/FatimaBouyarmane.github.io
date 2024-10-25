@@ -1,6 +1,137 @@
 <!doctype html>
 <html lang="en">
 <head>
+
+    <style>
+        /* Reset some default styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #000; /* Black background */
+            color: #fff; /* White text */
+        }
+
+        header {
+            background-color: #5c4b8a; /* Light Purple */
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #fff; /* White */
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            color: #e3e0f1; /* Light Lavender */
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #d1c1e0; /* Light Purple Text */
+            line-height: 1.6;
+        }
+
+        nav {
+            background-color: #5c4b8a; /* Purple background for nav */
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav a {
+            color: #ffffff; /* White links */
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #d1c1e0; /* Light Purple on hover */
+        }
+
+        .sidebar {
+            background-color: #4b3f71; /* Darker Purple */
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .sidebar h2 {
+            font-size: 1.5rem;
+            color: #ffffff; /* White text */
+        }
+
+        .button {
+            background-color: #9b8bc7; /* Soft Purple */
+            color: #fff; /* White text */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #8a7fba; /* Darker Purple on hover */
+        }
+
+        footer {
+            background-color: #5c4b8a; /* Purple background for footer */
+            color: #ffffff; /* White text */
+            text-align: center;
+            padding: 15px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+            }
+
+            nav a {
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to My Website</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="sidebar">
+            <h2>Sidebar Title</h2>
+            <p>This is some sidebar content.</p>
+        </div>
+        <button class="button">Click Me!</button>
+    </main>
+
+    <footer>
+        &copy; 2024 Your Website Name
+    </footer>
+    
+</body>
+</html>
+
+    </style>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7">
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e">
