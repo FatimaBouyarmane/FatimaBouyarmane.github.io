@@ -1,313 +1,115 @@
 <!doctype html>
 <html lang="en">
 <head>
-
-    <style>
-        /* Reset some default styles */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #000; /* Black background */
-            color: #fff; /* White text */
-        }
-
-        header {
-            background-color: #5c4b8a; /* Light Purple */
-            padding: 20px;
-            text-align: center;
-        }
-
-        h1 {
-            color: #fff; /* White */
-            font-size: 2.5rem;
-        }
-
-        h2 {
-            color: #e3e0f1; /* Light Lavender */
-            margin-bottom: 10px;
-        }
-
-        p {
-            color: #d1c1e0; /* Light Purple Text */
-            line-height: 1.6;
-        }
-
-        nav {
-            background-color: #5c4b8a; /* Purple background for nav */
-            padding: 10px;
-            display: flex;
-            justify-content: center;
-        }
-
-        nav a {
-            color: #ffffff; /* White links */
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #d1c1e0; /* Light Purple on hover */
-        }
-
-        .sidebar {
-            background-color: #4b3f71; /* Darker Purple */
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .sidebar h2 {
-            font-size: 1.5rem;
-            color: #ffffff; /* White text */
-        }
-
-        .button {
-            background-color: #9b8bc7; /* Soft Purple */
-            color: #fff; /* White text */
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .button:hover {
-            background-color: #8a7fba; /* Darker Purple on hover */
-        }
-
-        footer {
-            background-color: #5c4b8a; /* Purple background for footer */
-            color: #ffffff; /* White text */
-            text-align: center;
-            padding: 15px;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-
-        /* Responsive design */
-        @media (max-width: 600px) {
-            nav {
-                flex-direction: column;
-            }
-
-            nav a {
-                margin: 5px 0;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <h1>Welcome to My Website</h1>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Services</a>
-            <a href="#">Contact</a>
-        </nav>
-    </header>
-
-    <main>
-        <div class="sidebar">
-            <h2>Sidebar Title</h2>
-            <p>This is some sidebar content.</p>
-        </div>
-        <button class="button">Click Me!</button>
-    </main>
-
-    <footer>
-        &copy; 2024 Your Website Name
-    </footer>
-    
-</body>
-</html>
-
-    </style>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7">
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
-    <meta name="generator" content="Jekyll v4.3.4" />
-    <meta property="og:title" content="Jane Doe" />
-    <meta property="og:locale" content="en" />
-    <meta name="description" content="A Collection of Programming Tutorials." />
-    <meta property="og:description" content="A Collection of Programming Tutorials." />
-    <link rel="canonical" href="https://janedoe.github.io/" />
-    <meta property="og:url" content="https://janedoe.github.io/" />
-    <meta property="og:site_name" content="Jane Doe" />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary" />
-    <meta property="twitter:title" content="Jane Doe" />
-    <meta name="twitter:site" content="@twitter_username" />
-    <script type="application/ld+json"> 
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "description": "A Collection of Programming Tutorials.",
-        "headline": "Jane Doe",
-        "name": "Jane Doe",
-        "sameAs": [
-            "https://github.com/JaneDoe",
-            "https://www.linkedin.com/in/jane-doe/"
-        ],
-        "url": "https://janedoe.github.io/"
-    }</script>
-    <title>Jane Doe</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png">
-    <link rel="manifest" href="/assets/img/favicons/site.webmanifest">
-    <link rel="shortcut icon" href="/assets/img/favicons/favicon.ico">
-    <meta name="apple-mobile-web-app-title" content="Jane Doe">
-    <meta name="application-name" content="Jane Doe">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="msapplication-config" content="/assets/img/favicons/browserconfig.xml">
+    <meta name="generator" content="Hugo 0.108.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp">
+    <title>Fatima Bouyarmane aka F3RA's Blog</title>
+    <meta name="description" content="Tech articles and writeups by F3RA">
+    <meta property="og:title" content="Fatima Bouyarmane aka F3RA's Blog">
+    <meta property="og:description" content="Tech articles and writeups by F3RA">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fatimabouyarmane.github.io/">
+    <meta property="og:image" content="https://fatimabouyarmane.github.io/logo.png">
+    <meta property="og:site_name" content="F3RA's Blog">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://fatimabouyarmane.github.io/logo.png">
+    <meta name="twitter:title" content="Fatima Bouyarmane aka F3RA's Blog">
+    <meta name="twitter:description" content="Tech articles and writeups by F3RA">
+    <meta name="application-name" content="Blogs">
+    <meta name="apple-mobile-web-app-title" content="Blogs">
     <meta name="theme-color" content="#ffffff">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link rel="preconnect" href="https://cdn.jsdelivr.net">
-    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-    <link rel="stylesheet" href="/assets/css/jekyll-theme-chirpy.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Source+Sans+Pro:wght@400;600;700;900&display=swap">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/loading-attribute-polyfill@2.1.1/dist/loading-attribute-polyfill.min.css">
-    
-    <script type="text/javascript">
-        class ModeToggle {
-            static get MODE_KEY() { return 'mode'; }
-            static get MODE_ATTR() { return 'data-mode'; }
-            static get DARK_MODE() { return 'dark'; }
-            static get LIGHT_MODE() { return 'light'; }
-            static get ID() { return 'mode-toggle'; }
-
-            constructor() {
-                let self = this;
-                this.sysDarkPrefers.addEventListener('change', () => {
-                    if (self.hasMode) { self.clearMode(); }
-                    self.notify();
-                });
-                if (!this.hasMode) { return; }
-                if (this.isDarkMode) { this.setDark(); } else { this.setLight(); }
-            }
-
-            get sysDarkPrefers() { return window.matchMedia('(prefers-color-scheme: dark)'); }
-            get isPreferDark() { return this.sysDarkPrefers.matches; }
-            get isDarkMode() { return this.mode === ModeToggle.DARK_MODE; }
-            get hasMode() { return this.mode != null; }
-            get mode() { return sessionStorage.getItem(ModeToggle.MODE_KEY); }
-            get modeStatus() {
-                return this.hasMode ? this.mode : this.isPreferDark ? ModeToggle.DARK_MODE : ModeToggle.LIGHT_MODE;
-            }
-
-            setDark() {
-                document.documentElement.setAttribute(ModeToggle.MODE_ATTR, ModeToggle.DARK_MODE);
-                sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE);
-            }
-
-            setLight() {
-                document.documentElement.setAttribute(ModeToggle.MODE_ATTR, ModeToggle.LIGHT_MODE);
-                sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE);
-            }
-
-            clearMode() {
-                document.documentElement.removeAttribute(ModeToggle.MODE_ATTR);
-                sessionStorage.removeItem(ModeToggle.MODE_KEY);
-            }
-
-            notify() {
-                window.postMessage({ direction: ModeToggle.ID, message: this.modeStatus }, '*');
-            }
-
-            flipMode() {
-                if (this.hasMode) { this.clearMode(); }
-                else { this.isPreferDark ? this.setLight() : this.setDark(); }
-                this.notify();
-            }
+    <meta name="msapplication-TileColor" content="#da532c">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="canonical" href="https://fatimabouyarmane.github.io/">
+    <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Fatima Bouyarmane aka F3RA's Blog">
+    <link rel="stylesheet" href="/css/style.min.css">
+    <link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload='this.onload=null;this.rel="stylesheet"'>
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript>
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "WebSite",
+            "url": "https://fatimabouyarmane.github.io/",
+            "inLanguage": "en",
+            "author": {
+                "@type": "Person",
+                "name": "Fatima Bouyarmane aka F3RA"
+            },
+            "description": "Tech articles and writeups by F3RA",
+            "name": "Fatima Bouyarmane aka F3RA's Blog"
         }
-        const modeToggle = new ModeToggle();
     </script>
 </head>
-<body>
-    <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
-        <header class="profile-wrapper">
-            <a href="/" id="avatar" class="rounded-circle">
-                <img src="https://media.licdn.com/dms/image/v2/D4E03AQFJ2pCwjW1gqg/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1700773629512?e=1733961600&v=beta&t=sDosRw2t3ibVXRrMX8uqFqY5YbILwtt0FvQ1wkPh6uk" width="112" height="112" alt="avatar" onerror="this.style.display='none'">
-            </a>
-            <h1 class="site-title"> <a href="/">Jane Doe</a></h1>
-            <p class="site-subtitle fst-italic mb-0">A Collection of Programming Tutorials</p>
-        </header>
-        <nav class="flex-column flex-grow-1 w-100 ps-0">
-            <ul class="nav">
-                <li class="nav-item active"> 
-                    <a href="/" class="nav-link"> <i class="fa-fw fas fa-home"></i> <span>HOME</span> </a>
-                </li>
-                <li class="nav-item"> 
-                    <a href="/categories/" class="nav-link"> <i class="fa-fw fas fa-stream"></i> <span>CATEGORIES</span> </a>
-                </li>
-                <li class="nav-item"> 
-                    <a href="/tags/" class="nav-link"> <i class="fa-fw fas fa-tags"></i> <span>TAGS</span> </a>
-                </li>
-                <li class="nav-item"> 
-                    <a href="/archives/" class="nav-link"> <i class="fa-fw fas fa-archive"></i> <span>ARCHIVES</span> </a>
-                </li>
-                <li class="nav-item"> 
-                    <a href="/about/" class="nav-link"> <i class="fa-fw fas fa-info-circle"></i> <span>ABOUT</span> </a>
-                </li>
-            </ul>
-        </nav>
-        <div class="sidebar-bottom d-flex flex-wrap align-items-center w-100">
-            <button type="button" class="btn btn-link nav-link" aria-label="Switch Mode" id="mode-toggle"> 
-                <i class="fas fa-adjust"></i> 
-            </button> 
-            <span class="icon-border"></span> 
-            <a href="https://github.com/JaneDoe" aria-label="github" target="_blank" rel="noopener noreferrer"> 
-                <i class="fab fa-github"></i> 
-            </a> 
-            <a href="https://twitter.com/twitter_username" aria-label="twitter" target="_blank" rel="noopener noreferrer"> 
-                <i class="fa-brands fa-x-twitter"></i> 
-            </a> 
-            <a href="javascript:location.href = 'mailto:' + ['janedoe','gmail.com'].join('@')" aria-label="email"> 
-                <i class="fas fa-envelope"></i> 
-            </a>
+<body data-header-desktop="auto" data-header-mobile="auto">
+    <header class="desktop" id="header-desktop">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Fatima Bouyarmane aka F3RA's Blog"><span>F3RA's Blog</span></a>
+            </div>
+            <div class="menu">
+                <a class="menu-item" href="/posts/">Posts</a>
+                <a class="menu-item" href="/tags/">Tags</a>
+                <a class="menu-item" href="/aboutme/">About Me</a>
+                <a class="menu-item theme-switch" title="Switch Theme"><i class="fas fa-adjust fa-fw" aria-hidden="true"></i></a>
+            </div>
         </div>
-    </aside>
-    <div id="main-wrapper" class="d-flex justify-content-center">
-        <div id="content" class="p-3">
-            <article class="post">
-                <header>
-                    <h2><a href="/post/first-tutorial/">My First Tutorial</a></h2>
-                    <time datetime="2023-10-25">October 25, 2023</time>
-                </header>
-                <p>Welcome to my blog! In this first tutorial, I'll guide you through the basics of HTML and CSS...</p>
-                <a href="/post/first-tutorial/" class="read-more">Read More →</a>
+    </header>
+    
+    <main class="main">
+        <div class="container">
+            <div class="home-profile">
+                <div class="home-avatar">
+                    <a href="/posts/" title="Posts"><img src="https://avatars.githubusercontent.com/u/77463686?v=4" alt="Profile Image of F3RA"></a>
+                </div>
+                <h1 class="home-title">Blogs by F3RA</h1>
+                <div class="home-subtitle">Exploring cybersecurity and tech</div>
+                <div class="links">
+                    <a href="https://github.com/F3RA" title="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github fa-fw" aria-hidden="true"></i></a>
+                    <a href="https://discordapp.com/users/f3ra" title="Discord" target="_blank" rel="noopener noreferrer"><i class="fab fa-discord fa-fw" aria-hidden="true"></i></a>
+                    <a href="mailto:fatimabouyarmane@example.com" title="Email" rel="me"><i class="far fa-envelope fa-fw" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            
+            <!-- Example Blog Post Summary -->
+            <article class="single summary" itemscope itemtype="http://schema.org/Article">
+                <h1 class="single-title" itemprop="name headline">
+                    <a href="/examplepost/">Introduction to Cryptography in CTFs</a>
+                </h1>
+                <div class="post-meta">
+                    <span class="post-author">
+                        <a href="https://fatimabouyarmane.github.io/" title="Author" target="_blank" rel="noopener noreferrer author" class="author">
+                            <i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>F3RA
+                        </a>
+                    </span>
+                    <span class="post-publish">Published on <time datetime="2024-08-20">August 20, 2024</time></span>
+                    <span class="post-category">Category: <a href="/categories/cybersecurity/">Cybersecurity</a></span>
+                </div>
+                <div class="content">
+                    <p>An introduction to the basics of cryptography, featuring common techniques used in Capture the Flag (CTF) challenges.</p>
+                </div>
+                <div class="post-footer">
+                    <a href="/examplepost/">Read More</a>
+                    <div class="post-tags">
+                        <a href="/tags/crypto/">Crypto</a>, <a href="/tags/ctf/">CTF</a>, <a href="/tags/security/">Security</a>
+                    </div>
+                </div>
             </article>
-            <article class="post">
-                <header>
-                    <h2><a href="/post/second-tutorial/">Understanding JavaScript Basics</a></h2>
-                    <time datetime="2023-10-20">October 20, 2023</time>
-                </header>
-                <p>This tutorial will cover the foundational concepts of JavaScript, including variables, functions, and control flow...</p>
-                <a href="/post/second-tutorial/" class="read-more">Read More →</a>
-            </article>
-            <!-- Add more articles as needed -->
         </div>
-    </div>
-    <footer class="footer text-center">
-        <p>&copy; 2023 Jane Doe. All rights reserved.</p>
+    </main>
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <p>Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreferrer" title="LoveIt Theme">LoveIt</a></p>
+        </div>
     </footer>
-    <script src="/assets/js/main.js"></script>
+
+    <script type="text/javascript" src="/js/theme.min.js"></script>
 </body>
 </html>
