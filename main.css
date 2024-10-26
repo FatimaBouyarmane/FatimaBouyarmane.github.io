@@ -1,0 +1,103 @@
+:root {
+    /* Font and Typography */
+    --global-font-family: 'JetBrains Mono', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    --header-title-font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Emoji, Helvetica, Arial, sans-serif;
+    --code-font-family: 'Fira Code', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+    
+    /* Font sizes */
+    --global-font-size: 0.9em;
+    --header-title-font-size: 1.5rem;
+    --toc-title-font-size: 1.2rem;
+    --toc-content-font-size: 1rem;
+    --code-font-size: 1em;
+    
+    /* Line Heights */
+    --global-line-height: 1.5rem;
+    --header-height: 3.5rem;
+
+    /* Colors */
+    --primary-color-light: #161209;
+    --primary-color-dark: #cdd3d0;
+    --background-light: #ffffff;
+    --background-dark: #121212;
+    --selection-light: rgba(53, 166, 247, 0.25);
+    --selection-dark: rgba(50, 112, 194, 0.4);
+    --scrollbar-thumb: #87878d;
+    
+    /* Animation */
+    --animate-duration: 1s;
+    --animate-delay: 1s;
+    --animate-repeat: 1;
+}
+
+/* Universal Styling */
+html {
+    font-family: var(--global-font-family);
+    font-size: var(--global-font-size);
+    line-height: var(--global-line-height);
+    width: 100%;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+/* Selection Styling */
+::selection {
+    background-color: var(--selection-light);
+}
+[theme=dark] ::selection {
+    background-color: var(--selection-dark);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem;
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb);
+}
+
+/* Theme-based Styling */
+body {
+    background-color: var(--background-light);
+    color: var(--primary-color-light);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+body[theme=dark] {
+    color: var(--primary-color-dark);
+    background-color: var(--background-dark);
+}
+
+/* Header and Post Titles */
+h1 {
+    font-size: 2em;
+    font-weight: bold;
+    line-height: 125%;
+    margin: 0.67em 0;
+}
+
+/* Title styling within home and summary sections */
+.home[data-home="posts"] .summary .single-title {
+    font-size: 1.25rem;
+    line-height: 140%;
+    margin: 0.4rem 0;
+}
+.single .single-title {
+    margin: 2rem 0 0.5rem;
+    font-size: 1.6rem;
+    font-weight: bold;
+    line-height: 140%;
+}
+
+/* Summary section styling */
+.home[data-home="posts"] .summary {
+    padding-top: 1rem;
+    padding-bottom: 0.8rem;
+    color: var(--primary-color-light);
+    border-bottom: 1px dashed #f0f0f0;
+}
+[theme=dark] .home[data-home="posts"] .summary {
+    color: var(--primary-color-dark);
+    border-bottom: 1px dashed #363636;
+}
