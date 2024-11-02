@@ -127,31 +127,39 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const submitBtn = contactForm.querySelector('.submit-btn');
             const btnText = submitBtn.querySelector('.btn-text');
-            const originalText = btnText.textContent;
             
             // Show loading state
             submitBtn.classList.add('loading');
             
-            // Simulate form submission (replace with actual form submission)
             try {
-                await new Promise(resolve => setTimeout(resolve, 2000)); // Simulate API call
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: new FormData(contactForm),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
                 
-                // Show success message
-                const successMessage = document.createElement('div');
-                successMessage.className = 'success-message';
-                successMessage.textContent = 'Message sent successfully!';
-                contactForm.appendChild(successMessage);
-                
-                // Reset form
-                contactForm.reset();
-                
-                // Hide success message after 5 seconds
-                setTimeout(() => {
-                    successMessage.style.display = 'none';
-                }, 5000);
+                if (response.ok) {
+                    // Show success message
+                    const successMessage = document.createElement('div');
+                    successMessage.className = 'success-message';
+                    successMessage.textContent = 'Message sent successfully!';
+                    contactForm.appendChild(successMessage);
+                    
+                    // Reset form
+                    contactForm.reset();
+                    
+                    // Remove success message after 5 seconds
+                    setTimeout(() => {
+                        successMessage.remove();
+                    }, 5000);
+                } else {
+                    throw new Error('Failed to send message');
+                }
                 
             } catch (error) {
-                console.error('Error sending message:', error);
+                console.error('Error:', error);
                 alert('Failed to send message. Please try again.');
             } finally {
                 // Reset button state
