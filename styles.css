@@ -107,8 +107,8 @@ nav {
 
 /* Enhanced About Section Styles */
 #about {
-    background: var(--secondary-color);
     padding: 6rem 2rem;
+    background: var(--secondary-color);
 }
 
 .about-container {
@@ -116,45 +116,60 @@ nav {
     margin: 0 auto;
 }
 
-.section-title {
+/* Header Styles */
+.about-header {
     text-align: center;
-    font-size: 2.5rem;
     margin-bottom: 4rem;
-    position: relative;
 }
 
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
+.section-subtitle {
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+.title-decoration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.line {
+    height: 2px;
+    width: 50px;
     background: var(--accent-color);
 }
 
+/* Main Content Layout */
 .about-content {
     display: grid;
-    grid-template-columns: minmax(300px, 1fr) 2fr;
+    grid-template-columns: 1fr 2fr;
     gap: 4rem;
     align-items: start;
 }
 
-/* Profile Image and Social Links */
-.about-image-container {
-    position: sticky;
-    top: 100px;
+/* Profile Column */
+.profile-column {
+    text-align: center;
 }
 
 .image-wrapper {
-    position: relative;
     width: 280px;
     height: 280px;
-    margin: 0 auto;
+    margin: 0 auto 2rem;
     border-radius: 50%;
     padding: 8px;
-    background: linear-gradient(45deg, var(--accent-color), #58a6ff33);
+    background: linear-gradient(45deg, var(--accent-color), transparent);
 }
 
 .profile-image {
@@ -162,8 +177,6 @@ nav {
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid var(--secondary-color);
-    transition: transform 0.3s ease;
 }
 
 .social-links {
@@ -174,16 +187,8 @@ nav {
 }
 
 .social-icon {
-    position: relative;
     color: var(--text-color);
     font-size: 1.5rem;
-    width: 45px;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background: var(--primary-color);
     transition: all 0.3s ease;
 }
 
@@ -192,47 +197,28 @@ nav {
     transform: translateY(-3px);
 }
 
-.tooltip {
-    position: absolute;
-    bottom: -30px;
-    font-size: 0.8rem;
-    background: var(--primary-color);
-    padding: 4px 8px;
-    border-radius: 4px;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
+/* Info Column */
+.info-column > div {
+    margin-bottom: 3rem;
 }
 
-.social-icon:hover .tooltip {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* About Info Section */
-.about-info {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-}
-
-.subtitle {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
+.bio-section h3 {
     color: var(--accent-color);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
 }
 
-.bio {
-    font-size: 1.1rem;
+.bio-section p {
     line-height: 1.8;
-    margin-bottom: 1.5rem;
+    color: var(--text-color);
 }
 
-/* Expertise Cards */
+/* Expertise Grid */
 .expertise-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
+    margin-top: 1.5rem;
 }
 
 .expertise-card {
@@ -241,40 +227,29 @@ nav {
     border-radius: 12px;
     border: 1px solid var(--border-color);
     transition: transform 0.3s ease;
-    display: flex;
-    gap: 1rem;
 }
 
 .expertise-card:hover {
     transform: translateY(-5px);
 }
 
-.card-icon {
+.expertise-card i {
     font-size: 2rem;
-    color: var(--accent-color);
-    min-width: 50px;
-}
-
-.card-content h4 {
-    color: var(--accent-color);
-    margin-bottom: 0.5rem;
-}
-
-/* Skills Section */
-.skills-container {
-    display: grid;
-    gap: 2rem;
-}
-
-.skill-category h4 {
     color: var(--accent-color);
     margin-bottom: 1rem;
 }
 
+.expertise-card h4 {
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+/* Skills Grid */
 .skills-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.8rem;
+    gap: 1rem;
+    margin-top: 1.5rem;
 }
 
 .skill-tag {
@@ -290,7 +265,49 @@ nav {
 .skill-tag:hover {
     background: var(--accent-color);
     color: var(--primary-color);
-    border-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .profile-column {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .expertise-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .image-wrapper {
+        width: 240px;
+        height: 240px;
+    }
+}
+
+@media (max-width: 480px) {
+    #about {
+        padding: 4rem 1rem;
+    }
+
+    .bio-section h3 {
+        font-size: 1.5rem;
+    }
+
+    .skills-grid {
+        justify-content: center;
+    }
 }
 
 /* Projects Section */
