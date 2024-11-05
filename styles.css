@@ -1242,3 +1242,42 @@ footer {
         font-size: 0.95rem;
     }
 }
+
+/* CV Button Styles */
+.cv-section {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.cv-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem 2rem;
+    background: var(--accent-color);
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 2px solid var(--accent-color);
+}
+
+.cv-button:hover {
+    background: transparent;
+    color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(88, 166, 255, 0.2);
+}
+
+.cv-button i {
+    font-size: 1.2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cv-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.95rem;
+    }
+}
