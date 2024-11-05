@@ -330,15 +330,15 @@ nav {
 
 .project-slider {
     display: flex;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     gap: 2rem;
 }
 
 .project-slide {
     min-width: 100%;
-    opacity: 0.5;
-    transform: scale(0.9);
-    transition: all 0.5s ease;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     padding: 0 1rem;
 }
 

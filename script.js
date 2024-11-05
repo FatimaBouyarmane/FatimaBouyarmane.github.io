@@ -29,9 +29,7 @@ class ProjectCarousel {
         this.prevBtn = document.querySelector('.carousel-btn.prev');
         this.nextBtn = document.querySelector('.carousel-btn.next');
         this.currentSlide = 0;
-        this.slideWidth = 100;
-        this.touchStartX = 0;
-        this.touchEndX = 0;
+        this.isTransitioning = false; // Prevent rapid clicking
         
         this.init();
     }
@@ -54,6 +52,9 @@ class ProjectCarousel {
         this.nextBtn?.addEventListener('click', () => this.nextSlide());
 
         // Add touch support
+        this.touchStartX = 0;
+        this.touchEndX = 0;
+        
         this.slider.addEventListener('touchstart', (e) => {
             this.touchStartX = e.changedTouches[0].screenX;
         });
@@ -64,18 +65,12 @@ class ProjectCarousel {
             if (this.touchStartX - this.touchEndX < -50) this.prevSlide();
         });
 
-        // Add keyboard support
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') this.prevSlide();
-            if (e.key === 'ArrowRight') this.nextSlide();
-        });
-
-        // Auto play
+        // Auto play with longer interval
         this.startAutoPlay();
     }
 
     startAutoPlay() {
-        this.autoPlayInterval = setInterval(() => this.nextSlide(), 5000);
+        this.autoPlayInterval = setInterval(() => this.nextSlide(), 6000); // Longer interval (6 seconds)
         
         // Pause on hover
         this.slider.addEventListener('mouseenter', () => {
@@ -87,26 +82,46 @@ class ProjectCarousel {
         });
     }
 
-    updateDots() {
+    updateSlides() {
         this.slides.forEach((slide, index) => {
             slide.classList.toggle('active', index === this.currentSlide);
         });
     }
 
+    updateDots() {
+        const dots = this.dotsContainer.querySelectorAll('.dot');
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === this.currentSlide);
+        });
+    }
+
     goToSlide(index) {
+        if (this.isTransitioning) return; // Prevent rapid transitions
+        this.isTransitioning = true;
+        
         this.currentSlide = index;
-        this.slider.style.transform = `translateX(-${index * this.slideWidth}%)`;
+        this.slider.style.transform = `translateX(-${index * 100}%)`;
         this.updateDots();
+        this.updateSlides();
+
+        // Reset transition lock after animation completes
+        setTimeout(() => {
+            this.isTransitioning = false;
+        }, 800); // Match this with CSS transition duration
     }
 
     nextSlide() {
-        this.currentSlide = (this.currentSlide + 1) % this.slides.length;
-        this.goToSlide(this.currentSlide);
+        if (!this.isTransitioning) {
+            this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+            this.goToSlide(this.currentSlide);
+        }
     }
 
     prevSlide() {
-        this.currentSlide = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
-        this.goToSlide(this.currentSlide);
+        if (!this.isTransitioning) {
+            this.currentSlide = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+            this.goToSlide(this.currentSlide);
+        }
     }
 }
 
