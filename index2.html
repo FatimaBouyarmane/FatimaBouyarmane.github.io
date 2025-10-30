@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fatima BOUYARMANE - Portfolio</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Add EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-content">
+            <div class="logo">
+                <span>FB</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="nav-item">Home</a>
+                <a href="#about" class="nav-item">About</a>
+                <a href="#projects" class="nav-item">Projects</a>
+                <a href="#contact" class="nav-item">Contact</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home">
+        <div class="hero-content">
+            <h1>Hi, I'm Fatima BOUYARMANE</h1>
+            <p>Cybersecurity Student | CTF Enthusiast</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn primary-btn">Contact Me</a>
+                <a href="#projects" class="btn secondary-btn">View Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="about-container">
+            <!-- Section Header -->
+            <div class="about-header">
+                <h2 class="section-title">Who I Am</h2>
+                <div class="title-decoration">
+                    <span class="line"></span>
+                    <i class="fas fa-code-branch"></i>
+                    <span class="line"></span>
+                </div>
+                <p class="about-subtitle">Passionate about Cybersecurity & Innovation</p>
+            </div>
+
+            <!-- Main Content -->
+            <div class="about-content">
+                <!-- Left Column - Profile -->
+                <div class="profile-column">
+                    <div class="image-wrapper">
+                        <div class="image-border">
+                            <img src="images/My photo.jpg" alt="Fatima BOUYARMANE" class="profile-image">
+                        </div>
+                        <div class="image-backdrop"></div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/fatima-bouyarmane-919892228/" target="_blank" class="social-icon" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/FatimaBouyarmane/" target="_blank" class="social-icon" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="mailto:fbouyarmane@gmail.com" class="social-icon" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column - Info -->
+                <div class="info-column">
+                    <!-- Bio Section -->
+                    <div class="bio-section">
+                        <div class="bio-header">
+                            <h3><i class="fas fa-user-shield"></i> Cybersecurity Student</h3>
+                            <span class="education-badge">EUROMED University</span>
+                        </div>
+                        <p class="bio-text">
+                            Fourth-year cybersecurity student at EUROMED University, passionate about digital security and system protection. Experienced in CTF competitions and committed to developing innovative security solutions.
+                        </p>
+                    </div>
+
+                    <!-- Expertise Section -->
+                    <div class="expertise-section">
+                        <h3><i class="fas fa-star"></i> Areas of Expertise</h3>
+                        <div class="expertise-grid">
+                            <div class="expertise-card">
+                                <div class="expertise-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h4>Network Security</h4>
+                                <p>Specialized in system security and network protection</p>
+                            </div>
+                            <div class="expertise-card">
+                                <div class="expertise-icon">
+                                    <i class="fas fa-flag"></i>
+                                </div>
+                                <h4>CTF Competitor</h4>
+                                <p>Active participant in Capture The Flag competitions</p>
+                            </div>
+                            <div class="expertise-card">
+                                <div class="expertise-icon">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <h4>Space Technology</h4>
+                                <p>Passionate about space technology security</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skills Section -->
+                    <div class="skills-section">
+                        <h3><i class="fas fa-tools"></i> Technical Skills</h3>
+                        <div class="skills-grid">
+                            <div class="skill-tag"><i class="fas fa-shield-alt"></i> Network Security</div>
+                            <div class="skill-tag"><i class="fas fa-bug"></i> Penetration Testing</div>
+                            <div class="skill-tag"><i class="fas fa-exclamation-triangle"></i> Incident Response</div>
+                            <div class="skill-tag"><i class="fas fa-search"></i> Security Analysis</div>
+                            <div class="skill-tag"><i class="fas fa-chart-line"></i> Risk Assessment</div>
+                            <div class="skill-tag"><i class="fas fa-key"></i> Cryptography</div>
+                        </div>
+                    </div>
+
+                    <!-- CV Section -->
+                    <div class="cv-section">
+                        <a href="./assets/cv.pdf" class="cv-button" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-file-pdf"></i>
+                            <span>Download CV</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="projects-container">
+            <h2 class="section-title">My Projects</h2>
+            
+            <div class="project-carousel">
+                <div class="carousel-container">
+                    <button class="carousel-btn prev" aria-label="Previous slide">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    
+                    <div class="project-slider">
+                        <!-- Project 1: Snort IDS -->
+                        <div class="project-slide">
+                            <div class="project-card">
+                                <div class="project-image">
+                                    <img src="images/snort.png" alt="Snort IDS">
+                                    <div class="project-overlay">
+                                        <a href="https://github.com/Fatimabouyarmane/snort-IDS" class="project-link" target="_blank">
+                                            <i class="fab fa-github"></i>
+                                            View Project
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="project-content">
+                                    <h3>Snort IDS Implementation</h3>
+                                    <p>Implemented and configured Snort IDS to enhance network security through real-time traffic analysis and threat detection. Developed custom rules for specific attack patterns, configured preprocessors for optimized packet analysis, and implemented automated alert systems. Successfully detected and logged various attack attempts including SQL injections, port scans, and malware signatures.</p>
+                                    <div class="project-tags">
+                                        <span>Network Security</span>
+                                        <span>IDS</span>
+                                        <span>Threat Detection</span>
+                                        <span>Log Analysis</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 2: RPC -->
+                        <div class="project-slide">
+                            <div class="project-card">
+                                <div class="project-image">
+                                    <img src="images/rpc.jpg" alt="RPC">
+                                    <div class="project-overlay">
+                                        <a href="https://github.com/FatimaBouyarmane/RPC-Encrypt-Decrypt" class="project-link" target="_blank">
+                                            <i class="fab fa-github"></i>
+                                            View Project
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="project-content">
+                                    <h3>Remote Procedure Call (RPC) Security System</h3>
+                                    <p>Developed a secure RPC system using Java with integrated AES-256 encryption for data protection. Implemented client-server architecture with mutual authentication, session management, and secure key exchange protocols. Features include real-time encryption/decryption of procedure calls, error handling mechanisms, and protection against common RPC vulnerabilities like replay attacks and man-in-the-middle attempts.</p>
+                                    <div class="project-tags">
+                                        <span>Java</span>
+                                        <span>RPC</span>
+                                        <span>AES Encryption</span>
+                                        <span>Network Security</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 3: OpenNebula -->
+                        <div class="project-slide">
+                            <div class="project-card">
+                                <div class="project-image">
+                                    <img src="images/OpenNebula.png" alt="OpenNebula">
+                                    <div class="project-overlay">
+                                        <a href="https://github.com/Fatimabouyarmane/OpenNebula" class="project-link" target="_blank">
+                                            <i class="fab fa-github"></i>
+                                            View Project
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="project-content">
+                                    <h3>OpenNebula with VMware vCenter Integration</h3>
+                                    <p>Successfully integrated OpenNebula with VMware vCenter to create a unified cloud management platform. Implemented automated resource allocation, load balancing, and high availability features. Configured virtual networks, storage systems, and user access controls. Developed custom monitoring solutions and implemented disaster recovery procedures. The system efficiently manages multiple virtual clusters while maintaining optimal resource utilization.</p>
+                                    <div class="project-tags">
+                                        <span>Cloud Computing</span>
+                                        <span>Virtualization</span>
+                                        <span>VMware</span>
+                                        <span>Infrastructure Management</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 4: Active Directory -->
+                        <div class="project-slide">
+                            <div class="project-card">
+                                <div class="project-image">
+                                    <img src="images/AD.png" alt="Active Directory">
+                                    <div class="project-overlay">
+                                        <a href="https://github.com/Fatimabouyarmane/Active_Directory" class="project-link" target="_blank">
+                                            <i class="fab fa-github"></i>
+                                            View Project
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="project-content">
+                                    <h3>Enterprise Active Directory Implementation</h3>
+                                    <p>Designed and implemented a comprehensive Active Directory infrastructure for enterprise network management. Set up multi-domain forests with proper trust relationships, configured Group Policies for security enforcement, and implemented RODC for branch offices. Established automated user provisioning, implemented password policies, and configured advanced security features including PKI integration and secure LDAP. Managed DNS integration and implemented backup/recovery procedures.</p>
+                                    <div class="project-tags">
+                                        <span>Windows Server</span>
+                                        <span>Network Admin</span>
+                                        <span>Security</span>
+                                        <span>Identity Management</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 5: JupyterHub -->
+                        <div class="project-slide">
+                            <div class="project-card">
+                                <div class="project-image">
+                                    <img src="images/jupyterHub.png" alt="JupyterHub">
+                                    <div class="project-overlay">
+                                        <a href="https://github.com/Fatimabouyarmane/JupyterHub_Deployment" class="project-link" target="_blank">
+                                            <i class="fab fa-github"></i>
+                                            View Project
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="project-content">
+                                    <h3>JupyterHub on Kubernetes with ML Integration</h3>
+                                    <p>Architected and deployed a scalable JupyterHub environment on Kubernetes for machine learning applications. Implemented container orchestration, configured persistent storage solutions, and integrated with GPU resources for deep learning workloads. Set up authentication via OAuth2, implemented resource quotas, and configured auto-scaling based on user demand. Integrated with Kubeflow for enhanced ML capabilities and implemented monitoring using Prometheus and Grafana.</p>
+                                    <div class="project-tags">
+                                        <span>Kubernetes</span>
+                                        <span>Docker</span>
+                                        <span>ML Ops</span>
+                                        <span>Cloud Native</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 6: Portfolio -->
+                        <div class="project-slide">
+                            <div class="project-card">
+                                <div class="project-image">
+                                    <img src="images/portfolio.png" alt="Portfolio">
+                                    <div class="project-overlay">
+                                        <a href="https://github.com/Fatimabouyarmane/Cybersecurity-Portfolio" class="project-link" target="_blank">
+                                            <i class="fab fa-github"></i>
+                                            View Project
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="project-content">
+                                    <h3>Personal Portfolio Website</h3>
+                                    <p>Designed and developed a modern, responsive portfolio website using HTML5, CSS3, and JavaScript. Implemented advanced features including infinite carousel, smooth animations, and form validation. Utilized modern CSS techniques like Grid and Flexbox for layouts, implemented accessibility features, and optimized performance through lazy loading and code splitting. Integrated with FormSpree for secure contact form handling and implemented responsive design principles.</p>
+                                    <div class="project-tags">
+                                        <span>HTML/CSS</span>
+                                        <span>JavaScript</span>
+                                        <span>Web Design</span>
+                                        <span>UI/UX</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 7: Honeypots -->
+                        <div class="project-slide">
+                            <div class="project-card">
+                                <div class="project-image">
+                                    <img src="images/honeypot.png" alt="Honeypots">
+                                    <div class="project-overlay">
+                                        <a href="https://github.com/FatimaBouyarmane/HONEYPOTS-Analyzing_attacks_and_strengthening_defenses" class="project-link" target="_blank">
+                                            <i class="fab fa-github"></i>
+                                            View Project
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="project-content">
+                                    <h3>Honeypots in Action: Analyzing Attacks and Strengthening Defenses</h3>
+                                    <p>Designed and implemented a comprehensive honeypot infrastructure using multiple technologies to study cyber attack patterns. Deployed Dionaea for malware capture, Cowrie for SSH/Telnet attack analysis, and HoneyD for network simulation. Enhanced security through AppArmor profiles and Seccomp filters to contain potential breaches. Implemented real-time attack visualization using the ELK Stack, enabling pattern recognition and threat intelligence gathering. The system successfully captured and analyzed numerous attack vectors, contributing to improved security measures and incident response strategies.</p>
+                                    <div class="project-tags">
+                                        <span>Dionaea</span>
+                                        <span>Cowrie</span>
+                                        <span>HoneyD</span>
+                                        <span>AppArmor</span>
+                                        <span>Seccomp</span>
+                                        <span>ELK Stack</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 8: Node.js Security Analysis -->
+                        <div class="project-slide">
+                            <div class="project-card">
+                                <div class="project-image">
+                                    <img src="images/web.png" alt="Node.js Webserver Security Analysis">
+                                    <div class="project-overlay">
+                                        <a href="https://github.com/FatimaBouyarmane/Vulnerability-analysis-nodejs" class="project-link" target="_blank">
+                                            <i class="fab fa-github"></i>
+                                            View Project
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="project-content">
+                                    <h3>Node.js Web server Security Analysis</h3>
+                                    <p>Conducted comprehensive security analysis of a Node.js web server, identifying and addressing critical vulnerabilities. Implemented security testing methodologies including:
+                                    - OWASP Top 10 vulnerability assessment
+                                    - SQL injection prevention using parameterized queries
+                                    - XSS protection through input sanitization and CSP headers
+                                    - Implementation of secure session management
+                                    - Rate limiting and DDoS protection
+                                    Developed security best practices documentation and implemented automated security testing using tools like OWASP ZAP and Snyk.</p>
+                                    <div class="project-tags">
+                                        <span>Node.js</span>
+                                        <span>Web Security</span>
+                                        <span>Penetration Testing</span>
+                                        <span>Security Headers</span>
+                                        <span>Authentication</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 9: Detecting phishing websites using Machine Learning Based-approach -->
+                        <div class="project-slide">
+                            <div class="project-card">
+                                <div class="project-image">
+                                    <img src="images/phishing.png" alt="Phishing">
+                                    <div class="project-overlay">
+                                        <a href="https://github.com/FatimaBouyarmane/Phishing-website-detector-using-AI---Machine-Learning" class="project-link" target="_blank">
+                                            <i class="fab fa-github"></i>
+                                            View Project
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="project-content">
+                                    <h3>Phishing websites Detector using Machine Learning</h3>
+                                    <p>The <b>Phishing Website Detector</b> is a machine learning-based tool designed to identify phishing websites using a <b>Random Forest classifier</b> trained on a dataset of phishing and legitimate URLs. It features a user-friendly, techy-themed GUI for real-time URL scanning, allowing users to input a URL and instantly receive a prediction (Phishing or Legitimate). The tool is cross-platform, working seamlessly on Windows, macOS, and Linux, and can also be used as a Flask API for integration into other applications. Built with simplicity and effectiveness in mind, this project is ideal for users looking to enhance their online security.</p>
+                                    <div class="project-tags">
+                                        <span>Machine Learning</span>
+                                        <span>Random Forest</span>
+                                        <span>Phishing detection</span>
+                                        <span>Artificial Intelligence</span>
+                                        <span>Web security</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <button class="carousel-btn next" aria-label="Next slide">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <div class="carousel-dots"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact-container">
+            <div class="contact-header">
+                
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="title-decoration">
+                    <span class="line"></span>
+                    <i class="fas fa-envelope-open-text"></i>
+                    <span class="line"></span>
+                </div>
+                <p class="contact-tagline">
+                    Let's collaborate on making the digital world more secure
+                </p>
+                <div class="quick-contact">
+                    <a href="mailto:fbouyarmane@gmail.com" class="quick-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        fbouyarmane@gmail.com
+                    </a>
+                    <span class="separator">|</span>
+                    <a href="tel:+212634086082" class="quick-contact-item">
+                        <i class="fas fa-phone"></i>
+                        +212634086082
+                    </a>
+                </div>
+            </div>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Let's Connect</h3>
+                    <p class="contact-description">
+                        I'm currently available for opportunities in cybersecurity. 
+                        Feel free to reach out if you'd like to collaborate or just have a chat!
+                    </p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <div class="method-info">
+                                <h4>Email</h4>
+                                <a href="mailto:fbouyarmane@gmailcom">fbouyarmane@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <i class="fab fa-linkedin"></i>
+                            <div class="method-info">
+                                <h4>LinkedIn</h4>
+                                <a href="https://www.linkedin.com/in/fatima-bouyarmane-919892228/" target="_blank">Connect on LinkedIn</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <i class="fab fa-github"></i>
+                            <div class="method-info">
+                                <h4>GitHub</h4>
+                                <a href="https://github.com/FatimaBouyarmane" target="_blank">Follow on GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <form action="https://formspree.io/f/xjkvyawb" method="POST" class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required>
+                            <label for="name">Name</label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required>
+                            <label for="email">Email</label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" required>
+                            <label for="subject">Subject</label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                            <label for="message">Message</label>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <span class="btn-text">Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Fatima BOUYARMANE. All rights reserved.</p>
+    </footer>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+
+    <style>
+    html {
+        min-height: 100%;
+        /* Replace with your actual background image */
+        background: url('images/back.png') no-repeat center center fixed;
+        background-size: cover;
+    }
+    </style>
+</body>
+</html>

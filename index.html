@@ -1,0 +1,2023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fatima BOUYARMANE - Cybersecurity Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --accent: #3b82f6;
+            --dark: #0f172a;
+            --darker: #020617;
+            --light: #f1f5f9;
+            --gray: #64748b;
+            --border: #334155;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .cyber-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+        }
+
+        .cyber-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(37, 99, 235, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(37, 99, 235, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(50px); }
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 2rem;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--light);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--light);
+            transition: all 0.3s;
+            border-radius: 3px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 70%;
+            max-width: 300px;
+            height: 100vh;
+            background: rgba(15, 23, 42, 0.98);
+            backdrop-filter: blur(10px);
+            border-left: 1px solid var(--border);
+            padding: 5rem 2rem 2rem;
+            transition: right 0.3s ease;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu a {
+            color: var(--light);
+            text-decoration: none;
+            font-size: 1.25rem;
+            font-weight: 500;
+            padding: 1rem;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .mobile-menu a:hover {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+        }
+
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 998;
+        }
+
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: float-glow 8s ease-in-out infinite;
+        }
+
+        @keyframes float-glow {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -55%) scale(1.1); }
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--light), var(--gray));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -2px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 2.5rem 0 2rem;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-number {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+            line-height: 1;
+        }
+
+        .hero-stat-label {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-top: 0.5rem;
+            display: block;
+        }
+
+        .typing-effect {
+            display: inline-block;
+            color: var(--primary);
+            border-right: 2px solid var(--primary);
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 0;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        .availability-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.65rem 1.25rem;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 25px;
+            color: #22c55e;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.3s both, pulse 2s infinite;
+        }
+
+        .availability-badge i {
+            animation: blink-dot 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        @keyframes blink-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .hero-skills {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        .hero-skill {
+            padding: 0.5rem 1rem;
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            color: var(--light);
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+
+        .hero-skill:hover {
+            background: rgba(37, 99, 235, 0.2);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .hero-skill i {
+            color: var(--primary);
+            margin-right: 0.5rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--border);
+            color: var(--light);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            background: rgba(37, 99, 235, 0.1);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--gray);
+            color: var(--gray);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: rgba(37, 99, 235, 0.05);
+        }
+
+        .section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            color: var(--light);
+            letter-spacing: -1px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .about-wrapper {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-left {
+            position: sticky;
+            top: 120px;
+        }
+
+        .profile-card {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .profile-image-wrapper {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-image {
+            width: 100%;
+            border-radius: 12px;
+            border: 3px solid var(--border);
+            transition: transform 0.3s;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.02);
+        }
+
+        .profile-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--light);
+        }
+
+        .profile-title {
+            color: var(--primary);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .profile-location {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .profile-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-top: 0.25rem;
+        }
+
+        .social-links-card {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links-card a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 8px;
+            color: var(--primary);
+            transition: all 0.3s;
+            border: 1px solid var(--border);
+        }
+
+        .social-links-card a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .cv-download {
+            margin-top: 1.5rem;
+        }
+
+        .cv-btn {
+            display: block;
+            width: 100%;
+            padding: 0.875rem;
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid var(--primary);
+            border-radius: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .cv-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .about-right {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .about-section {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+
+        .about-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--light);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .about-section h3 i {
+            color: var(--primary);
+            font-size: 1.25rem;
+        }
+
+        .about-section p {
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .expertise-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(37, 99, 235, 0.05);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .expertise-item:hover {
+            background: rgba(37, 99, 235, 0.1);
+            transform: translateX(5px);
+        }
+
+        .expertise-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 8px;
+            color: var(--primary);
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .expertise-content h4 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+            color: var(--light);
+        }
+
+        .expertise-content p {
+            font-size: 0.875rem;
+            color: var(--gray);
+            margin: 0;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-badge {
+            padding: 0.5rem 1rem;
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            color: var(--light);
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .skill-badge:hover {
+            background: rgba(37, 99, 235, 0.2);
+            border-color: var(--primary);
+        }
+
+        .skill-badge i {
+            color: var(--primary);
+            margin-right: 0.5rem;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 3rem auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: 11px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 3px solid var(--dark);
+            z-index: 1;
+        }
+
+        .timeline-content {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .timeline-content:hover {
+            border-color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .timeline-header h3 {
+            color: var(--light);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .company {
+            color: var(--gray);
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .timeline-date {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .experience-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .experience-list li {
+            color: var(--gray);
+            line-height: 1.8;
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-list li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            padding: 0.375rem 0.875rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            border: 1px solid var(--border);
+        }
+
+        .education-section,
+        .activities-section {
+            margin-top: 4rem;
+        }
+
+        .subsection-title {
+            font-size: 1.75rem;
+            color: var(--light);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .subsection-title i {
+            color: var(--primary);
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .education-card {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            transition: all 0.3s;
+        }
+
+        .education-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .education-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 8px;
+            color: var(--primary);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .education-content h4 {
+            color: var(--light);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .institution {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .education-date {
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .activity-card {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .activity-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .activity-header {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .activity-icon {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 8px;
+            color: var(--primary);
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .activity-header h4 {
+            color: var(--light);
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .activity-org {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .activity-list {
+            list-style: none;
+        }
+
+        .activity-list li {
+            color: var(--gray);
+            line-height: 1.8;
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .activity-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: rgba(15, 23, 42, 0.5);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+
+        .project-content {
+            padding: 1.75rem;
+        }
+
+        .project-content h3 {
+            color: var(--light);
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+        }
+
+        .project-content p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            padding: 0.375rem 0.875rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            border: 1px solid var(--border);
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .project-link:hover {
+            gap: 0.75rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.75rem;
+            color: var(--light);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info p {
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.25rem;
+            background: rgba(15, 23, 42, 0.5);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .contact-item:hover {
+            background: rgba(37, 99, 235, 0.05);
+            border-color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--primary);
+            width: 40px;
+            text-align: center;
+        }
+
+        .contact-item strong {
+            display: block;
+            color: var(--light);
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-item p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .contact-form {
+            background: rgba(15, 23, 42, 0.5);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--light);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--light);
+            font-family: inherit;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(15, 23, 42, 0.9);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .submit-btn:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            background: rgba(15, 23, 42, 0.8);
+            border-top: 1px solid var(--border);
+            margin-top: 4rem;
+        }
+
+        .social-links-footer {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links-footer a {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 50%;
+            color: var(--primary);
+            transition: all 0.3s;
+            border: 1px solid var(--border);
+        }
+
+        .social-links-footer a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        footer p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 1024px) {
+            .about-wrapper {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-left {
+                position: relative;
+                top: 0;
+            }
+
+            .expertise-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero-stats {
+                gap: 2rem;
+            }
+
+            .hero-stat-number {
+                font-size: 2rem;
+            }
+
+            .hero-skills {
+                gap: 0.5rem;
+            }
+
+            .hero-skill {
+                font-size: 0.75rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .profile-stats {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .section {
+                padding: 4rem 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .timeline::before {
+                left: 10px;
+            }
+
+            .timeline-item {
+                padding-left: 45px;
+            }
+
+            .timeline-marker {
+                left: 5px;
+                width: 15px;
+                height: 15px;
+            }
+
+            .timeline-header {
+                flex-direction: column;
+            }
+
+            .education-grid,
+            .activities-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .timeline::before {
+                left: 15px;
+            }
+
+            .timeline-item {
+                padding-left: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cyber-bg">
+        <div class="cyber-grid"></div>
+    </div>
+
+    <nav>
+        <div class="nav-content">
+            <div class="logo">FB</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="blog.html">Blog</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="menu-overlay"></div>
+    <div class="mobile-menu">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="blog.html">Blog</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Fatima BOUYARMANE</h1>
+            <p class="subtitle">Cybersecurity Engineering Student | <span class="typing-effect" id="typed"></span></p>
+            
+            <div class="availability-badge">
+                <i class="fas fa-circle"></i> Open to PFE Internship Opportunities
+            </div>
+
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-number">3</span>
+                    <span class="hero-stat-label">Internships</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">9+</span>
+                    <span class="hero-stat-label">Projects</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">4+</span>
+                    <span class="hero-stat-label">Years Experience</span>
+                </div>
+            </div>
+
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i> Contact Me
+                </a>
+                <a href="#projects" class="btn btn-secondary">
+                    <i class="fas fa-code"></i> View Work
+                </a>
+                <a href="./assets/cv.pdf" class="btn btn-outline" target="_blank">
+                    <i class="fas fa-file-pdf"></i> Resume
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section fade-in">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">Passionate about securing digital infrastructures and solving complex security challenges</p>
+        
+        <div class="about-wrapper">
+            <div class="about-left">
+                <div class="profile-card">
+                    <div class="profile-image-wrapper">
+                        <img src="images/My photo.jpg" alt="Fatima BOUYARMANE" class="profile-image">
+                    </div>
+                    <h3 class="profile-name">Fatima BOUYARMANE</h3>
+                    <p class="profile-title">Cybersecurity Student</p>
+                    <p class="profile-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        EUROMED University, Morocco
+                    </p>
+                    
+                    <div class="profile-stats">
+                        <div class="stat">
+                            <span class="stat-number">4th</span>
+                            <span class="stat-label">Year</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">9+</span>
+                            <span class="stat-label">Projects</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">3</span>
+                            <span class="stat-label">Internships</span>
+                        </div>
+                    </div>
+
+                    <div class="social-links-card">
+                        <a href="https://www.linkedin.com/in/fatima-bouyarmane-919892228/" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/FatimaBouyarmane/" target="_blank" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="mailto:fbouyarmane@gmail.com" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+
+                    <div class="cv-download">
+                        <a href="./assets/cv.pdf" class="cv-btn" target="_blank">
+                            <i class="fas fa-download"></i> Download CV
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-right">
+                <div class="about-section">
+                    <h3><i class="fas fa-user-shield"></i> Who I Am</h3>
+                    <p>Fourth-year cybersecurity engineering student at EUROMED University seeking a PFE (End-of-Studies) internship starting February 2026. With hands-on experience across three professional internships, I bring practical expertise in penetration testing, AI-based security systems, red teaming, and network security.</p>
+                    <p>I'm particularly passionate about applying machine learning to security challenges, building robust defense systems, and participating in CTF competitions. My goal is to contribute to making digital environments more secure and resilient against evolving threats while continuing to grow as a cybersecurity professional.</p>
+                    
+                    <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(37, 99, 235, 0.05); border-left: 3px solid var(--primary); border-radius: 4px;">
+                        <strong style="color: var(--primary); display: block; margin-bottom: 0.5rem;">🎯 Currently Seeking:</strong>
+                        <p style="margin: 0; color: var(--light);">PFE Internship in Cybersecurity (6 months) - Available from February 2026</p>
+                    </div>
+                </div>
+
+                <div class="about-section">
+                    <h3><i class="fas fa-star"></i> Areas of Expertise</h3>
+                    <div class="expertise-grid">
+                        <div class="expertise-item">
+                            <div class="expertise-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="expertise-content">
+                                <h4>Network Security</h4>
+                                <p>IDS/IPS implementation and traffic analysis</p>
+                            </div>
+                        </div>
+                        <div class="expertise-item">
+                            <div class="expertise-icon">
+                                <i class="fas fa-bug"></i>
+                            </div>
+                            <div class="expertise-content">
+                                <h4>Penetration Testing</h4>
+                                <p>Vulnerability assessment and exploitation</p>
+                            </div>
+                        </div>
+                        <div class="expertise-item">
+                            <div class="expertise-icon">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <div class="expertise-content">
+                                <h4>Cloud Security</h4>
+                                <p>Infrastructure management and hardening</p>
+                            </div>
+                        </div>
+                        <div class="expertise-item">
+                            <div class="expertise-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="expertise-content">
+                                <h4>AI/ML in Security</h4>
+                                <p>Machine learning for threat detection</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-section">
+                    <h3><i class="fas fa-code"></i> Technical Skills</h3>
+                    <div class="skills-list">
+                        <span class="skill-badge"><i class="fas fa-shield-alt"></i> OWASP ZAP</span>
+                        <span class="skill-badge"><i class="fas fa-user-secret"></i> Metasploit</span>
+                        <span class="skill-badge"><i class="fas fa-bug"></i> Penetration Testing</span>
+                        <span class="skill-badge"><i class="fas fa-network-wired"></i> Snort IDS</span>
+                        <span class="skill-badge"><i class="fas fa-key"></i> Cryptography</span>
+                        <span class="skill-badge"><i class="fas fa-chart-line"></i> SIEM</span>
+                        <span class="skill-badge"><i class="fab fa-python"></i> Python</span>
+                        <span class="skill-badge"><i class="fab fa-java"></i> Java</span>
+                        <span class="skill-badge"><i class="fab fa-node-js"></i> Node.js</span>
+                        <span class="skill-badge"><i class="fab fa-docker"></i> Docker</span>
+                        <span class="skill-badge"><i class="fas fa-dharmachakra"></i> Kubernetes</span>
+                        <span class="skill-badge"><i class="fab fa-linux"></i> Linux</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section fade-in">
+        <h2 class="section-title">Professional Experience</h2>
+        <p class="section-subtitle">Building practical cybersecurity expertise through hands-on roles</p>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <div>
+                            <h3>IT & Cybersecurity Intern</h3>
+                            <p class="company"><i class="fas fa-building"></i> One Mobility, Tangier, Morocco</p>
+                        </div>
+                        <span class="timeline-date">Jul 2025 — Sep 2025</span>
+                    </div>
+                    <ul class="experience-list">
+                        <li>Developed an AI-based DDoS detection system in an SDN environment</li>
+                        <li>Built a machine learning model to detect and mitigate DDoS attacks in real time</li>
+                        <li>Integrated an AI engine, SDN controller, and monitoring dashboard to enhance network visibility and security</li>
+                        <li>Achieved accurate detection and rapid response through traffic simulation and model evaluation</li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span class="tech-tag">AI/ML</span>
+                        <span class="tech-tag">SDN</span>
+                        <span class="tech-tag">DDoS Detection</span>
+                        <span class="tech-tag">Python</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <div>
+                            <h3>Red Teaming Intern</h3>
+                            <p class="company"><i class="fas fa-building"></i> Hack Secure, Remote</p>
+                        </div>
+                        <span class="timeline-date">Apr 2025 — May 2025</span>
+                    </div>
+                    <ul class="experience-list">
+                        <li>Participated in Red Team attack simulations including initial access, lateral movement, and post-exploitation</li>
+                        <li>Conducted vulnerability assessments and penetration tests on various systems</li>
+                        <li>Performed password cracking exercises and security evaluations</li>
+                        <li>Contributed to comprehensive security reports and remediation strategies</li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Red Teaming</span>
+                        <span class="tech-tag">Penetration Testing</span>
+                        <span class="tech-tag">Metasploit</span>
+                        <span class="tech-tag">OSINT</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <div>
+                            <h3>Cybersecurity Intern</h3>
+                            <p class="company"><i class="fas fa-building"></i> Marcotran Morocco, Tangier</p>
+                        </div>
+                        <span class="timeline-date">Jul 2024 — Sep 2024</span>
+                    </div>
+                    <ul class="experience-list">
+                        <li>Performed penetration testing and vulnerability assessments on online payment systems</li>
+                        <li>Conducted security audits using OWASP ZAP and identified critical vulnerabilities</li>
+                        <li>Implemented two-factor authentication (2FA) to enhance login security</li>
+                        <li>Provided detailed security reports with actionable remediation recommendations</li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span class="tech-tag">OWASP ZAP</span>
+                        <span class="tech-tag">Penetration Testing</span>
+                        <span class="tech-tag">2FA Implementation</span>
+                        <span class="tech-tag">Payment Security</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="education-section">
+            <h3 class="subsection-title"><i class="fas fa-graduation-cap"></i> Education</h3>
+            <div class="education-grid">
+                <div class="education-card">
+                    <div class="education-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="education-content">
+                        <h4>Engineering Cycle - Cybersecurity</h4>
+                        <p class="institution">Euro-Mediterranean University of Fez</p>
+                        <p class="education-date">2023 — Present</p>
+                    </div>
+                </div>
+                <div class="education-card">
+                    <div class="education-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="education-content">
+                        <h4>Preparatory Classes - Digital Engineering</h4>
+                        <p class="institution">Euro-Mediterranean University of Fez</p>
+                        <p class="education-date">2021 — 2023</p>
+                    </div>
+                </div>
+                <div class="education-card">
+                    <div class="education-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="education-content">
+                        <h4>Baccalaureate - Physical Sciences</h4>
+                        <p class="institution">Ajdir High School, Taza</p>
+                        <p class="education-date">2021</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="activities-section">
+            <h3 class="subsection-title"><i class="fas fa-users"></i> Leadership & Activities</h3>
+            <div class="activities-grid">
+                <div class="activity-card">
+                    <div class="activity-header">
+                        <div class="activity-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Training Manager</h4>
+                            <p class="activity-org">SparkSec Club, UEMF Fez</p>
+                        </div>
+                    </div>
+                    <ul class="activity-list">
+                        <li>Managed budgets and organized Cybersecurity workshops</li>
+                        <li>Coordinated inter-club collaborations and Hackathon events</li>
+                    </ul>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-header">
+                        <div class="activity-icon">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <div>
+                            <h4>Member</h4>
+                            <p class="activity-org">DiGi Club, UEMF Fez</p>
+                        </div>
+                    </div>
+                    <ul class="activity-list">
+                        <li>Active participant in digital innovation initiatives</li>
+                        <li>Contributed to tech community building and knowledge sharing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section fade-in">
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">Showcasing hands-on cybersecurity implementations and research</p>
+        
+        <div class="projects-grid">
+            <div class="project-card">
+                <img src="images/honeypot.png" alt="Honeypots" class="project-image">
+                <div class="project-content">
+                    <h3>Honeypots Defense System</h3>
+                    <p>Comprehensive honeypot infrastructure using Dionaea, Cowrie, and HoneyD for attack analysis and threat intelligence gathering with real-time visualization.</p>
+                    <div class="project-tags">
+                        <span class="tag">Dionaea</span>
+                        <span class="tag">ELK Stack</span>
+                        <span class="tag">AppArmor</span>
+                        <span class="tag">Threat Intelligence</span>
+                    </div>
+                    <a href="https://github.com/FatimaBouyarmane/HONEYPOTS-Analyzing_attacks_and_strengthening_defenses" class="project-link" target="_blank">
+                        View Project <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="images/phishing.png" alt="Phishing Detection" class="project-image">
+                <div class="project-content">
+                    <h3>AI-Powered Phishing Detector</h3>
+                    <p>Machine learning-based phishing detection using Random Forest classifier with real-time URL scanning capabilities and user-friendly GUI.</p>
+                    <div class="project-tags">
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">Random Forest</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Flask API</span>
+                    </div>
+                    <a href="https://github.com/FatimaBouyarmane/Phishing-website-detector-using-AI---Machine-Learning" class="project-link" target="_blank">
+                        View Project <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="images/snort.png" alt="Snort IDS" class="project-image">
+                <div class="project-content">
+                    <h3>Snort IDS Implementation</h3>
+                    <p>Advanced intrusion detection system with custom rules for real-time traffic analysis, threat detection, and automated alert systems.</p>
+                    <div class="project-tags">
+                        <span class="tag">IDS/IPS</span>
+                        <span class="tag">Network Security</span>
+                        <span class="tag">Snort</span>
+                        <span class="tag">Log Analysis</span>
+                    </div>
+                    <a href="https://github.com/Fatimabouyarmane/snort-IDS" class="project-link" target="_blank">
+                        View Project <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="images/web.png" alt="Node.js Security" class="project-image">
+                <div class="project-content">
+                    <h3>Node.js Security Analysis</h3>
+                    <p>Comprehensive vulnerability assessment and security hardening of Node.js web servers using OWASP methodologies and automated testing.</p>
+                    <div class="project-tags">
+                        <span class="tag">Web Security</span>
+                        <span class="tag">OWASP Top 10</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">Penetration Testing</span>
+                    </div>
+                    <a href="https://github.com/FatimaBouyarmane/Vulnerability-analysis-nodejs" class="project-link" target="_blank">
+                        View Project <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="images/rpc.jpg" alt="RPC Security" class="project-image">
+                <div class="project-content">
+                    <h3>Secure RPC System</h3>
+                    <p>Remote Procedure Call system with integrated AES-256 encryption, mutual authentication, and protection against common RPC vulnerabilities.</p>
+                    <div class="project-tags">
+                        <span class="tag">Java</span>
+                        <span class="tag">Cryptography</span>
+                        <span class="tag">AES-256</span>
+                        <span class="tag">Network Security</span>
+                    </div>
+                    <a href="https://github.com/FatimaBouyarmane/RPC-Encrypt-Decrypt" class="project-link" target="_blank">
+                        View Project <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="images/OpenNebula.png" alt="OpenNebula" class="project-image">
+                <div class="project-content">
+                    <h3>Cloud Infrastructure Management</h3>
+                    <p>OpenNebula integration with VMware vCenter for unified cloud management, automated resource allocation, and high availability.</p>
+                    <div class="project-tags">
+                        <span class="tag">Cloud Computing</span>
+                        <span class="tag">VMware vCenter</span>
+                        <span class="tag">Virtualization</span>
+                        <span class="tag">Infrastructure</span>
+                    </div>
+                    <a href="https://github.com/Fatimabouyarmane/OpenNebula" class="project-link" target="_blank">
+                        View Project <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="images/AD.png" alt="Active Directory" class="project-image">
+                <div class="project-content">
+                    <h3>Enterprise Active Directory</h3>
+                    <p>Comprehensive Active Directory infrastructure with multi-domain forests, Group Policies, and advanced security features including PKI integration.</p>
+                    <div class="project-tags">
+                        <span class="tag">Windows Server</span>
+                        <span class="tag">Active Directory</span>
+                        <span class="tag">Network Admin</span>
+                        <span class="tag">Identity Management</span>
+                    </div>
+                    <a href="https://github.com/Fatimabouyarmane/Active_Directory" class="project-link" target="_blank">
+                        View Project <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="images/jupyterHub.png" alt="JupyterHub" class="project-image">
+                <div class="project-content">
+                    <h3>JupyterHub on Kubernetes</h3>
+                    <p>Scalable ML platform deployment with integrated GPU support, auto-scaling, and Kubeflow integration for enhanced machine learning capabilities.</p>
+                    <div class="project-tags">
+                        <span class="tag">Kubernetes</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">ML Ops</span>
+                        <span class="tag">Cloud Native</span>
+                    </div>
+                    <a href="https://github.com/Fatimabouyarmane/JupyterHub_Deployment" class="project-link" target="_blank">
+                        View Project <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="images/portfolio.png" alt="Portfolio" class="project-image">
+                <div class="project-content">
+                    <h3>Personal Portfolio Website</h3>
+                    <p>Modern, responsive portfolio website with advanced features including infinite carousel, smooth animations, and optimized performance.</p>
+                    <div class="project-tags">
+                        <span class="tag">HTML/CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Web Design</span>
+                        <span class="tag">UI/UX</span>
+                    </div>
+                    <a href="https://github.com/Fatimabouyarmane/Cybersecurity-Portfolio" class="project-link" target="_blank">
+                        View Project <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section fade-in">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Let's collaborate on making the digital world more secure</p>
+        
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>Let's Connect</h3>
+                <p>I'm currently available for opportunities in cybersecurity, internships, and collaborative projects. Feel free to reach out if you'd like to discuss security challenges or just have a chat about technology!</p>
+                
+                <a href="mailto:fbouyarmane@gmail.com" class="contact-item" style="text-decoration: none; color: inherit;">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <strong>Email</strong>
+                        <p>fbouyarmane@gmail.com</p>
+                    </div>
+                </a>
+                
+                <a href="tel:+212634086082" class="contact-item" style="text-decoration: none; color: inherit;">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <strong>Phone</strong>
+                        <p>+212 634 086 082</p>
+                    </div>
+                </a>
+                
+                <a href="https://www.linkedin.com/in/fatima-bouyarmane-919892228/" target="_blank" class="contact-item" style="text-decoration: none; color: inherit;">
+                    <i class="fab fa-linkedin"></i>
+                    <div>
+                        <strong>LinkedIn</strong>
+                        <p>Let's connect professionally</p>
+                    </div>
+                </a>
+                
+                <a href="https://github.com/FatimaBouyarmane" target="_blank" class="contact-item" style="text-decoration: none; color: inherit;">
+                    <i class="fab fa-github"></i>
+                    <div>
+                        <strong>GitHub</strong>
+                        <p>Explore my repositories</p>
+                    </div>
+                </a>
+            </div>
+
+            <form action="https://formspree.io/f/xjkvyawb" method="POST" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    <span>Send Message</span>
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-links-footer">
+            <a href="https://www.linkedin.com/in/fatima-bouyarmane-919892228/" target="_blank" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/FatimaBouyarmane/" target="_blank" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:fbouyarmane@gmail.com" aria-label="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+        <p>&copy; 2024 Fatima BOUYARMANE. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const phrases = ["CTF Enthusiast", "Security Researcher", "Threat Hunter", "Ethical Hacker"];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typedElement = document.getElementById('typed');
+
+        function typeEffect() {
+            const currentPhrase = phrases[phraseIndex];
+            
+            if (isDeleting) {
+                typedElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typedElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                setTimeout(() => isDeleting = true, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+            }
+
+            const speed = isDeleting ? 50 : 100;
+            setTimeout(typeEffect, speed);
+        }
+
+        typeEffect();
+
+        const hamburger = document.querySelector('.hamburger');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const menuOverlay = document.querySelector('.menu-overlay');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
+
+        function toggleMenu() {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        }
+
+        hamburger.addEventListener('click', toggleMenu);
+        menuOverlay.addEventListener('click', toggleMenu);
+
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                toggleMenu();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) {
+                    setTimeout(() => {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 300);
+                }
+            });
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        const form = document.querySelector('.contact-form');
+        form.addEventListener('submit', function(e) {
+            const btn = this.querySelector('.submit-btn');
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        });
+
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

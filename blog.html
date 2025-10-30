@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Fatima BOUYARMANE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --accent: #3b82f6;
+            --dark: #0f172a;
+            --darker: #020617;
+            --light: #f1f5f9;
+            --gray: #64748b;
+            --border: #334155;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .cyber-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+        }
+
+        .cyber-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(37, 99, 235, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(37, 99, 235, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(50px); }
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 2rem;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--light);
+        }
+
+        .blog-header {
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .blog-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--light), var(--gray));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -2px;
+        }
+
+        .blog-header p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+
+        .blog-categories {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .category-filter {
+            padding: 0.5rem 1.25rem;
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            color: var(--light);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .category-filter:hover,
+        .category-filter.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .blog-card {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        .blog-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .blog-category {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            border-radius: 15px;
+            font-size: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .blog-card h3 {
+            color: var(--light);
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+        }
+
+        .blog-card p {
+            color: var(--gray);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: var(--primary);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s;
+        }
+
+        .blog-card:hover .read-more {
+            gap: 0.75rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            background: rgba(15, 23, 42, 0.8);
+            border-top: 1px solid var(--border);
+            margin-top: 4rem;
+        }
+
+        footer p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .back-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid var(--primary);
+            border-radius: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-bottom: 2rem;
+        }
+
+        .back-home:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .blog-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cyber-bg">
+        <div class="cyber-grid"></div>
+    </div>
+
+    <nav>
+        <div class="nav-content">
+            <a href="index.html" class="logo">FB</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#experience">Experience</a>
+                <a href="index.html#projects">Projects</a>
+                <a href="blog.html">Blog</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="blog-header">
+        <h1>Cybersecurity Blog</h1>
+        <p>Insights, tutorials, and thoughts on cybersecurity, ethical hacking, and technology</p>
+        <a href="index.html" class="back-home">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+    </div>
+
+    <div class="blog-container">
+        <div class="blog-categories">
+            <button class="category-filter active" data-category="all">All Posts</button>
+            <button class="category-filter" data-category="tutorials">Tutorials</button>
+            <button class="category-filter" data-category="security">Security</button>
+            <button class="category-filter" data-category="ctf">CTF Writeups</button>
+            <button class="category-filter" data-category="career">Career</button>
+        </div>
+
+        <div class="blog-grid">
+            <!-- Blog Post 1 -->
+            <div class="blog-card" data-category="security">
+                <div class="blog-image">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="blog-content">
+                    <span class="blog-category">Security</span>
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar"></i> Dec 15, 2024</span>
+                        <span><i class="far fa-clock"></i> 5 min read</span>
+                    </div>
+                    <h3>Understanding AI-Based DDoS Detection in SDN</h3>
+                    <p>Deep dive into how machine learning models can detect and mitigate DDoS attacks in Software-Defined Networks. Insights from my internship at One Mobility.</p>
+                    <span class="read-more">Read More <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+
+            <!-- Blog Post 2 -->
+            <div class="blog-card" data-category="tutorials">
+                <div class="blog-image">
+                    <i class="fas fa-bug"></i>
+                </div>
+                <div class="blog-content">
+                    <span class="blog-category">Tutorial</span>
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar"></i> Nov 28, 2024</span>
+                        <span><i class="far fa-clock"></i> 8 min read</span>
+                    </div>
+                    <h3>Setting Up Honeypots for Threat Intelligence</h3>
+                    <p>A comprehensive guide to deploying Dionaea, Cowrie, and HoneyD honeypots with ELK Stack for real-time attack analysis and visualization.</p>
+                    <span class="read-more">Read More <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+
+            <!-- Blog Post 3 -->
+            <div class="blog-card" data-category="security">
+                <div class="blog-image">
+                    <i class="fas fa-network-wired"></i>
+                </div>
+                <div class="blog-content">
+                    <span class="blog-category">Security</span>
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar"></i> Nov 10, 2024</span>
+                        <span><i class="far fa-clock"></i> 6 min read</span>
+                    </div>
+                    <h3>Securing Payment Systems: Lessons from Real-World Testing</h3>
+                    <p>Key vulnerabilities found in online payment systems and how to implement secure authentication mechanisms like 2FA.</p>
+                    <span class="read-more">Read More <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+
+            <!-- Blog Post 4 -->
+            <div class="blog-card" data-category="ctf">
+                <div class="blog-image">
+                    <i class="fas fa-flag"></i>
+                </div>
+                <div class="blog-content">
+                    <span class="blog-category">CTF Writeup</span>
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar"></i> Oct 22, 2024</span>
+                        <span><i class="far fa-clock"></i> 10 min read</span>
+                    </div>
+                    <h3>CTF Writeup: Breaking Into Web Applications</h3>
+                    <p>Detailed walkthrough of a challenging CTF web exploitation challenge, covering SQL injection, XSS, and authentication bypass techniques.</p>
+                    <span class="read-more">Read More <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+
+            <!-- Blog Post 5 -->
+            <div class="blog-card" data-category="tutorials">
+                <div class="blog-image">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="blog-content">
+                    <span class="blog-category">Tutorial</span>
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar"></i> Oct 5, 2024</span>
+                        <span><i class="far fa-clock"></i> 7 min read</span>
+                    </div>
+                    <h3>Building a Phishing Detector with Machine Learning</h3>
+                    <p>Step-by-step guide to creating an AI-powered phishing detection system using Random Forest classifier and Python.</p>
+                    <span class="read-more">Read More <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+
+            <!-- Blog Post 6 -->
+            <div class="blog-card" data-category="career">
+                <div class="blog-image">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <div class="blog-content">
+                    <span class="blog-category">Career</span>
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar"></i> Sep 18, 2024</span>
+                        <span><i class="far fa-clock"></i> 5 min read</span>
+                    </div>
+                    <h3>My Journey in Cybersecurity: From Student to Red Teamer</h3>
+                    <p>Reflections on my cybersecurity journey, key learnings from internships, and advice for aspiring security professionals.</p>
+                    <span class="read-more">Read More <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+
+            <!-- Blog Post 7 -->
+            <div class="blog-card" data-category="security">
+                <div class="blog-image">
+                    <i class="fas fa-user-secret"></i>
+                </div>
+                <div class="blog-content">
+                    <span class="blog-category">Security</span>
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar"></i> Sep 1, 2024</span>
+                        <span><i class="far fa-clock"></i> 9 min read</span>
+                    </div>
+                    <h3>Red Team Tactics: Initial Access to Post-Exploitation</h3>
+                    <p>Insights from my red teaming internship covering attack simulation strategies, lateral movement techniques, and persistence methods.</p>
+                    <span class="read-more">Read More <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+
+            <!-- Blog Post 8 -->
+            <div class="blog-card" data-category="tutorials">
+                <div class="blog-image">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="blog-content">
+                    <span class="blog-category">Tutorial</span>
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar"></i> Aug 15, 2024</span>
+                        <span><i class="far fa-clock"></i> 6 min read</span>
+                    </div>
+                    <h3>Implementing Snort IDS for Network Security</h3>
+                    <p>Complete guide to setting up and configuring Snort IDS with custom rules for detecting various network attacks.</p>
+                    <span class="read-more">Read More <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+
+            <!-- Blog Post 9 -->
+            <div class="blog-card" data-category="security">
+                <div class="blog-image">
+                    <i class="fas fa-cloud"></i>
+                </div>
+                <div class="blog-content">
+                    <span class="blog-category">Security</span>
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar"></i> Jul 28, 2024</span>
+                        <span><i class="far fa-clock"></i> 7 min read</span>
+                    </div>
+                    <h3>Kubernetes Security Best Practices</h3>
+                    <p>Essential security configurations for Kubernetes clusters including RBAC, network policies, and container security.</p>
+                    <span class="read-more">Read More <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Fatima BOUYARMANE. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Category filtering
+        const filterButtons = document.querySelectorAll('.category-filter');
+        const blogCards = document.querySelectorAll('.blog-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+
+                const category = button.getAttribute('data-category');
+
+                blogCards.forEach(card => {
+                    if (category === 'all' || card.getAttribute('data-category') === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Add click handlers to blog cards (you can expand this to link to full posts)
+        blogCards.forEach(card => {
+            card.addEventListener('click', () => {
+                alert('Blog post coming soon! This is a placeholder for future content.');
+            });
+        });
+    </script>
+</body>
+</html>
